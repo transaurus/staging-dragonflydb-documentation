@@ -1,0 +1,62 @@
+{
+  "logo.alt": {
+    "message": "Dragonfly Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Product": {
+    "message": "Product",
+    "description": "Navbar item with label Product"
+  },
+  "item.label.Docs": {
+    "message": "Docs",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Pricing": {
+    "message": "Pricing",
+    "description": "Navbar item with label Pricing"
+  },
+  "item.label.Community": {
+    "message": "Community",
+    "description": "Navbar item with label Community"
+  },
+  "item.label.Company": {
+    "message": "Company",
+    "description": "Navbar item with label Company"
+  },
+  "item.label.Dragonfly Cloud": {
+    "message": "Dragonfly Cloud",
+    "description": "Navbar item with label Dragonfly Cloud"
+  },
+  "item.label.Community Edition": {
+    "message": "Community Edition",
+    "description": "Navbar item with label Community Edition"
+  },
+  "item.label.Cloud Edition": {
+    "message": "Cloud Edition",
+    "description": "Navbar item with label Cloud Edition"
+  },
+  "item.label.Blog": {
+    "message": "Blog",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Discord": {
+    "message": "Discord",
+    "description": "Navbar item with label Discord"
+  },
+  "item.label.Forum": {
+    "message": "Forum",
+    "description": "Navbar item with label Forum"
+  },
+  "item.label.Events": {
+    "message": "Events",
+    "description": "Navbar item with label Events"
+  },
+  "item.label.About": {
+    "message": "About",
+    "description": "Navbar item with label About"
+  },
+  "item.label.Careers": {
+    "message": "Careers",
+    "description": "Navbar item with label Careers"
+  }
+}

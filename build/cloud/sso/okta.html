@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-cloud/sso/okta" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Okta SSO Integration | Dragonfly Cloud</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://www.dragonflydb.io/docs/cloud/sso/okta"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Okta SSO Integration | Dragonfly"><meta data-rh="true" name="description" content="Overview"><meta data-rh="true" property="og:description" content="Overview"><link data-rh="true" rel="icon" href="/docs/website/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.dragonflydb.io/docs/cloud/sso/okta"><link data-rh="true" rel="alternate" href="https://www.dragonflydb.io/docs/cloud/sso/okta" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.dragonflydb.io/docs/cloud/sso/okta" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://ZXLX1PN8SG-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Dragonfly Cloud","item":"https://www.dragonflydb.io/docs/cloud"},{"@type":"ListItem","position":2,"name":"SSO","item":"https://www.dragonflydb.io/docs/cloud/sso/"},{"@type":"ListItem","position":3,"name":"Okta SSO Integration","item":"https://www.dragonflydb.io/docs/cloud/sso/okta"}]}</script><link rel="preconnect" href="https://www.googletagmanager.com">
+<script>window.dataLayer=window.dataLayer||[]</script>
+<script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a);m.async=!0,m.src="https://www.googletagmanager.com/gtm.js?id=GTM-M7MX697",g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer")</script>
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Dragonfly" href="/docs/opensearch.xml">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="true">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Organization","name":"DragonflyDB","url":"https://www.dragonflydb.io/","logo":"https://dragonflydb.io/assets/logo.svg","sameAs":["https://twitter.com/dragonflydbio","https://github.com/dragonflydb/dragonfly","https://www.linkedin.com/company/dragonflydb"]}</script><link rel="stylesheet" href="/docs/assets/css/styles.572dd3f5.css">
+<script src="/docs/assets/js/runtime~main.228c599a.js" defer="defer"></script>
+<script src="/docs/assets/js/main.1b7f43d0.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7MX697" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>document.documentElement.setAttribute("data-theme","dark"),document.documentElement.setAttribute("data-theme-choice","dark"),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a href="https://www.dragonflydb.io" target="_self" rel="noopener noreferrer" class="navbar__brand"><div class="navbar__logo"><img src="/docs/website/logo.svg" alt="Dragonfly Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/docs/website/logo.svg" alt="Dragonfly Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Product</a><ul class="dropdown__menu"><li><a href="https://github.com/dragonflydb/dragonfly" target="_blank" rel="noopener noreferrer" class="dropdown__link">Community Edition<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://www.dragonflydb.io/cloud" target="_blank" rel="noopener noreferrer" class="dropdown__link">Cloud Edition<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><a class="navbar__item navbar__link" href="/docs/">Docs</a><a href="https://www.dragonflydb.io/pricing" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Pricing<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Community</a><ul class="dropdown__menu"><li><a href="https://www.dragonflydb.io/blog" target="_blank" rel="noopener noreferrer" class="dropdown__link">Blog<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://discord.gg/HsPjXGVH85" target="_blank" rel="noopener noreferrer" class="dropdown__link">Discord<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://dragonfly.discourse.group/" target="_blank" rel="noopener noreferrer" class="dropdown__link">Forum<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://www.dragonflydb.io/events" target="_blank" rel="noopener noreferrer" class="dropdown__link">Events<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://www.dragonflydb.io/community" target="_blank" rel="noopener noreferrer" class="dropdown__link">Community<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Company</a><ul class="dropdown__menu"><li><a href="https://www.dragonflydb.io/about" target="_blank" rel="noopener noreferrer" class="dropdown__link">About<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li><a href="https://www.dragonflydb.io/careers" target="_blank" rel="noopener noreferrer" class="dropdown__link">Careers<svg width="12" height="12" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/dragonflydb/dragonfly" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link nav-github-stars"></a><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div><a href="https://www.dragonflydb.io/cloud" target="_self" rel="noopener noreferrer" class="navbar__item navbar__link nav-cta">Dragonfly Cloud<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/"><span title="Documentation" class="categoryLinkLabel_W154">Documentation</span></a><button aria-label="Expand sidebar category &#x27;Documentation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/getting-started"><span title="Getting Started" class="categoryLinkLabel_W154">Getting Started</span></a><button aria-label="Expand sidebar category &#x27;Getting Started&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/category/command-reference"><span title="Command Reference" class="categoryLinkLabel_W154">Command Reference</span></a><button aria-label="Expand sidebar category &#x27;Command Reference&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/managing-dragonfly/aof"><span title="Managing Dragonfly" class="categoryLinkLabel_W154">Managing Dragonfly</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/migrating-to-dragonfly"><span title="Migrating to Dragonfly" class="categoryLinkLabel_W154">Migrating to Dragonfly</span></a><button aria-label="Expand sidebar category &#x27;Migrating to Dragonfly&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/development/sdks"><span title="Development" class="categoryLinkLabel_W154">Development</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/integrations"><span title="Integrations" class="categoryLinkLabel_W154">Integrations</span></a><button aria-label="Expand sidebar category &#x27;Integrations&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/docs/cloud"><span title="Dragonfly Cloud" class="categoryLinkLabel_W154">Dragonfly Cloud</span></a><button aria-label="Collapse sidebar category &#x27;Dragonfly Cloud&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/getting-started"><span title="Getting Started" class="linkLabel_WmDU">Getting Started</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/datastores"><span title="Data Stores" class="linkLabel_WmDU">Data Stores</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/enterprise"><span title="Dragonfly Cloud Enterprise" class="linkLabel_WmDU">Dragonfly Cloud Enterprise</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/networks"><span title="Networks" class="linkLabel_WmDU">Networks</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/connections"><span title="Peering Connections" class="linkLabel_WmDU">Peering Connections</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/bandwidth"><span title="Network Bandwidth" class="linkLabel_WmDU">Network Bandwidth</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/monitoring"><span title="Monitoring" class="linkLabel_WmDU">Monitoring</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/backups"><span title="Backups" class="linkLabel_WmDU">Backups</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/data-retention"><span title="Data Retention" class="linkLabel_WmDU">Data Retention</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/cloud/migrate"><span title="Migrating to Dragonfly Cloud" class="categoryLinkLabel_W154">Migrating to Dragonfly Cloud</span></a><button aria-label="Expand sidebar category &#x27;Migrating to Dragonfly Cloud&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/cloud/connect"><span title="Connecting to Dragonfly Cloud" class="categoryLinkLabel_W154">Connecting to Dragonfly Cloud</span></a><button aria-label="Expand sidebar category &#x27;Connecting to Dragonfly Cloud&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/users"><span title="Managing Users" class="linkLabel_WmDU">Managing Users</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/pricing"><span title="Pricing" class="linkLabel_WmDU">Pricing</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/docs/cloud/sso"><span title="SSO" class="categoryLinkLabel_W154">SSO</span></a><button aria-label="Collapse sidebar category &#x27;SSO&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/sso/domains"><span title="Domain Verification" class="linkLabel_WmDU">Domain Verification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/sso/add-sso-connection"><span title="Adding an SSO Connection" class="linkLabel_WmDU">Adding an SSO Connection</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/sso/managed-users"><span title="Managed Users and SCIM Provisioning" class="linkLabel_WmDU">Managed Users and SCIM Provisioning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/cloud/sso/okta"><span title="Okta SSO Integration" class="linkLabel_WmDU">Okta SSO Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/sso/onelogin"><span title="OneLogin SSO Integration" class="linkLabel_WmDU">OneLogin SSO Integration</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/support"><span title="Support Plans" class="linkLabel_WmDU">Support Plans</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/cloud/terraform-provider"><span title="Terraform Provider" class="linkLabel_WmDU">Terraform Provider</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/cloud"><span>Dragonfly Cloud</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/cloud/sso"><span>SSO</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Okta SSO Integration</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Okta SSO Integration</h1></header>
+<span class="cloud-badge">CLOUD</span>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>This guide walks you through setting up Single Sign-On (SSO) between Dragonfly Cloud and Okta using SAML 2.0.
+With Okta SSO configured, your users can sign in to Dragonfly Cloud using their Okta credentials.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="prerequisites">Prerequisites<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites" title="Direct link to Prerequisites" translate="no">​</a></h2>
+<p>Before starting:</p>
+<ul>
+<li class=""><strong>Okta Administrator Access</strong>: You need administrator permissions in your Okta organization</li>
+<li class=""><strong>Verified Domain</strong>: Your email domain must be verified in Dragonfly Cloud. See <a class="" href="/docs/cloud/sso/domains">Domain Verification</a></li>
+<li class=""><strong>Dragonfly Cloud Owner Role</strong>: You need Owner permissions in Dragonfly Cloud to configure SSO</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuration-overview">Configuration Overview<a href="#configuration-overview" class="hash-link" aria-label="Direct link to Configuration Overview" title="Direct link to Configuration Overview" translate="no">​</a></h2>
+<p>The setup process involves two main steps:</p>
+<ol>
+<li class=""><strong>Create SSO Connection in Dragonfly Cloud</strong>: Set up the connection and obtain SAML configuration details</li>
+<li class=""><strong>Configure Okta Application</strong>: Create and configure a SAML app in Okta</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-create-sso-connection-in-dragonfly-cloud">Step 1: Create SSO Connection in Dragonfly Cloud<a href="#step-1-create-sso-connection-in-dragonfly-cloud" class="hash-link" aria-label="Direct link to Step 1: Create SSO Connection in Dragonfly Cloud" title="Direct link to Step 1: Create SSO Connection in Dragonfly Cloud" translate="no">​</a></h2>
+<ol>
+<li class="">
+<p>Navigate to <strong>Access &gt; SSO</strong> in Dragonfly Cloud</p>
+</li>
+<li class="">
+<p>Click <strong>Add Connection</strong> to create a new SSO connection</p>
+</li>
+<li class="">
+<p>Enter the connection details:</p>
+<ul>
+<li class=""><strong>Name</strong>: Give your connection a descriptive name (e.g., &quot;Okta SSO&quot;)</li>
+<li class=""><strong>Provider Type</strong>: Select <strong>SAML: Okta</strong></li>
+<li class=""><strong>Domains</strong>: Select your verified domain(s)</li>
+</ul>
+</li>
+<li class="">
+<p>You&#x27;ll need to configure the SAML settings. Keep this page open as you&#x27;ll return to it after configuring Okta.</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-configure-saml-application-in-okta">Step 2: Configure SAML Application in Okta<a href="#step-2-configure-saml-application-in-okta" class="hash-link" aria-label="Direct link to Step 2: Configure SAML Application in Okta" title="Direct link to Step 2: Configure SAML Application in Okta" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-new-saml-application">Create a New SAML Application<a href="#create-a-new-saml-application" class="hash-link" aria-label="Direct link to Create a New SAML Application" title="Direct link to Create a New SAML Application" translate="no">​</a></h3>
+<ol>
+<li class="">Sign in to your Okta Admin Console at <code>https://your-domain.okta.com/admin</code></li>
+<li class="">Navigate to <strong>Applications &gt; Applications</strong></li>
+<li class="">Click <strong>Create App Integration</strong></li>
+<li class="">Select <strong>SAML 2.0</strong> as the sign-in method</li>
+<li class="">Click <strong>Next</strong></li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="general-settings">General Settings<a href="#general-settings" class="hash-link" aria-label="Direct link to General Settings" title="Direct link to General Settings" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>App name</strong>: Enter &quot;Dragonfly Cloud&quot; (or your preferred name)</li>
+<li class=""><strong>App logo</strong> (optional): Upload a logo for the application</li>
+<li class="">Click <strong>Next</strong></li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="configure-saml-settings">Configure SAML Settings<a href="#configure-saml-settings" class="hash-link" aria-label="Direct link to Configure SAML Settings" title="Direct link to Configure SAML Settings" translate="no">​</a></h3>
+<p>In the SAML Settings section, configure the following:</p>
+<p><strong>Single Sign-On URL:</strong></p>
+<ul>
+<li class="">Enter the ACS (Assertion Consumer Service) URL provided by Dragonfly Cloud</li>
+<li class="">Example: <code>https://dragonflydb.cloud/auth/saml/callback</code></li>
+<li class="">Check <strong>Use this for Recipient URL and Destination URL</strong></li>
+</ul>
+<p><strong>Audience URI (SP Entity ID):</strong></p>
+<ul>
+<li class="">Enter the Entity ID provided by Dragonfly Cloud</li>
+<li class="">Example: <code>https://dragonflydb.cloud</code></li>
+</ul>
+<p><strong>Default RelayState:</strong></p>
+<ul>
+<li class="">Leave empty (optional)</li>
+</ul>
+<p><strong>Name ID format:</strong></p>
+<ul>
+<li class="">Select <strong>EmailAddress</strong></li>
+</ul>
+<p><strong>Application username:</strong></p>
+<ul>
+<li class="">Select <strong>Email</strong></li>
+</ul>
+<p><strong>Update application username on:</strong></p>
+<ul>
+<li class="">Select <strong>Create and update</strong></li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="attribute-statements">Attribute Statements<a href="#attribute-statements" class="hash-link" aria-label="Direct link to Attribute Statements" title="Direct link to Attribute Statements" translate="no">​</a></h3>
+<p>Add the following attribute statements to map Okta user attributes to SAML attributes:</p>
+<table><thead><tr><th>Name</th><th>Name Format</th><th>Value</th></tr></thead><tbody><tr><td><code>email</code></td><td>Unspecified</td><td><code>user.email</code></td></tr><tr><td><code>firstName</code></td><td>Unspecified</td><td><code>user.firstName</code></td></tr><tr><td><code>lastName</code></td><td>Unspecified</td><td><code>user.lastName</code></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="group-attribute-statements-optional">Group Attribute Statements (Optional)<a href="#group-attribute-statements-optional" class="hash-link" aria-label="Direct link to Group Attribute Statements (Optional)" title="Direct link to Group Attribute Statements (Optional)" translate="no">​</a></h3>
+<p>You can optionally add group attribute statements if you plan to use group-based access control in the future.</p>
+<p>Click <strong>Next</strong> after configuring SAML settings.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback">Feedback<a href="#feedback" class="hash-link" aria-label="Direct link to Feedback" title="Direct link to Feedback" translate="no">​</a></h3>
+<ol>
+<li class="">Select <strong>I&#x27;m an Okta customer adding an internal app</strong></li>
+<li class="">Check <strong>This is an internal app that we have created</strong></li>
+<li class="">Click <strong>Finish</strong></li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-get-okta-saml-metadata">Step 3: Get Okta SAML Metadata<a href="#step-3-get-okta-saml-metadata" class="hash-link" aria-label="Direct link to Step 3: Get Okta SAML Metadata" title="Direct link to Step 3: Get Okta SAML Metadata" translate="no">​</a></h2>
+<p>After creating the application, you need to obtain the SAML metadata to configure Dragonfly Cloud:</p>
+<ol>
+<li class="">
+<p>In the Okta application you just created, go to the <strong>Sign On</strong> tab</p>
+</li>
+<li class="">
+<p>Scroll down to the <strong>SAML 2.0</strong> section</p>
+</li>
+<li class="">
+<p>Right-click on <strong>Identity Provider metadata</strong> link and copy the URL</p>
+<p>OR</p>
+<p>Click on <strong>Identity Provider metadata</strong> to view the XML, then save it for manual configuration</p>
+</li>
+</ol>
+<p>The metadata URL will look like:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">https://your-domain.okta.com/app/exk.../sso/saml/metadata</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-4-complete-dragonfly-cloud-configuration">Step 4: Complete Dragonfly Cloud Configuration<a href="#step-4-complete-dragonfly-cloud-configuration" class="hash-link" aria-label="Direct link to Step 4: Complete Dragonfly Cloud Configuration" title="Direct link to Step 4: Complete Dragonfly Cloud Configuration" translate="no">​</a></h2>
+<p>Return to the Dragonfly Cloud SSO connection configuration:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-a-using-metadata-url">Option A: Using Metadata URL<a href="#option-a-using-metadata-url" class="hash-link" aria-label="Direct link to Option A: Using Metadata URL" title="Direct link to Option A: Using Metadata URL" translate="no">​</a></h3>
+<ol>
+<li class="">Paste the Okta metadata URL into the <strong>Metadata URL</strong> field</li>
+<li class="">Dragonfly Cloud will automatically fetch and populate:<!-- -->
+<ul>
+<li class="">Entity ID</li>
+<li class="">SSO URL</li>
+<li class="">Certificate</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-5-assign-users-in-okta">Step 5: Assign Users in Okta<a href="#step-5-assign-users-in-okta" class="hash-link" aria-label="Direct link to Step 5: Assign Users in Okta" title="Direct link to Step 5: Assign Users in Okta" translate="no">​</a></h2>
+<p>Before users can sign in, they must be assigned to the application in Okta:</p>
+<ol>
+<li class="">
+<p>In the Okta Admin Console, go to the Dragonfly Cloud application</p>
+</li>
+<li class="">
+<p>Navigate to the <strong>Assignments</strong> tab</p>
+</li>
+<li class="">
+<p>Click <strong>Assign</strong> and select:</p>
+<ul>
+<li class=""><strong>Assign to People</strong>: Assign individual users</li>
+<li class=""><strong>Assign to Groups</strong>: Assign entire groups</li>
+</ul>
+</li>
+<li class="">
+<p>Select the users or groups and click <strong>Assign</strong> and then <strong>Done</strong></p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-6-enable-the-connection">Step 6: Enable the Connection<a href="#step-6-enable-the-connection" class="hash-link" aria-label="Direct link to Step 6: Enable the Connection" title="Direct link to Step 6: Enable the Connection" translate="no">​</a></h2>
+<p>Back in Dragonfly Cloud:</p>
+<ol>
+<li class="">Go to <strong>Access &gt; SSO</strong></li>
+<li class="">Find your Okta SSO connection</li>
+<li class="">Toggle the connection to <strong>Enabled</strong></li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-7-test-the-connection">Step 7: Test the Connection<a href="#step-7-test-the-connection" class="hash-link" aria-label="Direct link to Step 7: Test the Connection" title="Direct link to Step 7: Test the Connection" translate="no">​</a></h2>
+<p>Test that SSO is working correctly:</p>
+<ol>
+<li class="">Open a private/incognito browser window</li>
+<li class="">Navigate to <a href="https://dragonflydb.cloud" target="_blank" rel="noopener noreferrer" class="">Dragonfly Cloud</a></li>
+<li class="">Enter your work email address (from your verified domain)</li>
+<li class="">You should be redirected to Okta for authentication</li>
+<li class="">After signing in with your Okta credentials, you should be redirected back to Dragonfly Cloud</li>
+</ol>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>If you encounter issues, check the troubleshooting section below.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="scim-provisioning">SCIM Provisioning<a href="#scim-provisioning" class="hash-link" aria-label="Direct link to SCIM Provisioning" title="Direct link to SCIM Provisioning" translate="no">​</a></h2>
+<p>SCIM (System for Cross-domain Identity Management) allows Okta to automatically create, update, and deactivate user accounts in Dragonfly Cloud.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="enabling-scim-in-dragonfly-cloud">Enabling SCIM in Dragonfly Cloud<a href="#enabling-scim-in-dragonfly-cloud" class="hash-link" aria-label="Direct link to Enabling SCIM in Dragonfly Cloud" title="Direct link to Enabling SCIM in Dragonfly Cloud" translate="no">​</a></h3>
+<ol>
+<li class="">Navigate to your SSO connection in Dragonfly Cloud</li>
+<li class="">Toggle <strong>SCIM Provisioning</strong> to enabled</li>
+<li class="">Copy the <strong>SCIM Endpoint URL</strong> and <strong>Bearer Token</strong> (you&#x27;ll need these for Okta configuration)</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuring-scim-in-okta">Configuring SCIM in Okta<a href="#configuring-scim-in-okta" class="hash-link" aria-label="Direct link to Configuring SCIM in Okta" title="Direct link to Configuring SCIM in Okta" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p>In the Okta Admin Console, go to your Dragonfly Cloud application</p>
+</li>
+<li class="">
+<p>Navigate to the <strong>Provisioning</strong> tab</p>
+</li>
+<li class="">
+<p>Click <strong>Configure API Integration</strong></p>
+</li>
+<li class="">
+<p>Check <strong>Enable API integration</strong></p>
+</li>
+<li class="">
+<p>Enter the following:</p>
+<ul>
+<li class=""><strong>SCIM Base URL</strong>: Paste the SCIM endpoint URL from Dragonfly Cloud</li>
+<li class=""><strong>OAuth Bearer Token</strong>: Paste the bearer token from Dragonfly Cloud</li>
+</ul>
+</li>
+<li class="">
+<p>Click <strong>Test API Credentials</strong> to verify the connection</p>
+</li>
+<li class="">
+<p>Click <strong>Save</strong></p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="enable-provisioning-features">Enable Provisioning Features<a href="#enable-provisioning-features" class="hash-link" aria-label="Direct link to Enable Provisioning Features" title="Direct link to Enable Provisioning Features" translate="no">​</a></h3>
+<p>After the API integration is configured:</p>
+<ol>
+<li class="">
+<p>Still in the <strong>Provisioning</strong> tab, go to <strong>Settings &gt; To App</strong></p>
+</li>
+<li class="">
+<p>Click <strong>Edit</strong></p>
+</li>
+<li class="">
+<p>Enable the following features:</p>
+<ul>
+<li class=""><strong>Create Users</strong>: Automatically create users in Dragonfly Cloud when assigned in Okta</li>
+<li class=""><strong>Update User Attributes</strong>: Sync user profile changes from Okta to Dragonfly Cloud</li>
+<li class=""><strong>Deactivate Users</strong>: Automatically deactivate users in Dragonfly Cloud when unassigned in Okta</li>
+</ul>
+</li>
+<li class="">
+<p>Click <strong>Save</strong></p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="attribute-mappings">Attribute Mappings<a href="#attribute-mappings" class="hash-link" aria-label="Direct link to Attribute Mappings" title="Direct link to Attribute Mappings" translate="no">​</a></h3>
+<p>Configure how Okta user attributes map to Dragonfly Cloud user attributes:</p>
+<ol>
+<li class="">
+<p>In the <strong>Provisioning</strong> tab, go to <strong>Settings &gt; To App &gt; Dragonfly Cloud Attribute Mappings</strong></p>
+</li>
+<li class="">
+<p>Verify the following mappings:</p>
+<ul>
+<li class="">Okta <code>userName</code> → Dragonfly <code>userName</code></li>
+<li class="">Okta <code>email</code> → Dragonfly <code>email</code></li>
+<li class="">Okta <code>firstName</code> → Dragonfly <code>firstName</code></li>
+<li class="">Okta <code>lastName</code> → Dragonfly <code>lastName</code></li>
+</ul>
+</li>
+<li class="">
+<p>Click <strong>Apply Attribute Mappings</strong> if you make any changes</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-scim-provisioning">Testing SCIM Provisioning<a href="#testing-scim-provisioning" class="hash-link" aria-label="Direct link to Testing SCIM Provisioning" title="Direct link to Testing SCIM Provisioning" translate="no">​</a></h3>
+<p>Test that SCIM provisioning is working:</p>
+<ol>
+<li class="">Assign a test user to the Dragonfly Cloud application in Okta</li>
+<li class="">Check the <strong>Provisioning</strong> logs in Okta for any errors</li>
+<li class="">Verify the user appears in Dragonfly Cloud under <strong>Access &gt; Users</strong></li>
+<li class="">Unassign the test user and verify they are deactivated in Dragonfly Cloud</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-issues">Common Issues<a href="#common-issues" class="hash-link" aria-label="Direct link to Common Issues" title="Direct link to Common Issues" translate="no">​</a></h3>
+<p><strong>&quot;User not found&quot; when signing in</strong></p>
+<ul>
+<li class="">Ensure the user is assigned to the Dragonfly Cloud application in Okta</li>
+<li class="">If SCIM is enabled, wait a few minutes for provisioning to complete</li>
+<li class="">Check Okta&#x27;s system log for authentication errors</li>
+</ul>
+<p><strong>&quot;Invalid SAML Response&quot;</strong></p>
+<ul>
+<li class="">Verify the SAML attributes (email, firstName, lastName) are correctly configured in Okta</li>
+<li class="">Ensure the Name ID format is set to EmailAddress</li>
+<li class="">Check that the certificate has not expired</li>
+</ul>
+<p><strong>&quot;Okta metadata URL not accessible&quot;</strong></p>
+<ul>
+<li class="">Ensure the metadata URL is correct</li>
+<li class="">Try using manual configuration instead of metadata URL</li>
+<li class="">Check if your network/firewall is blocking access to the Okta URL</li>
+</ul>
+<p><strong>SCIM provisioning not working</strong></p>
+<ul>
+<li class="">Verify the SCIM endpoint URL and bearer token are correct</li>
+<li class="">Check the &quot;To App&quot; provisioning settings are enabled</li>
+<li class="">Review Okta&#x27;s provisioning task log for specific error messages</li>
+<li class="">Ensure required attributes (email, firstName, lastName) are mapped</li>
+</ul>
+<p><strong>&quot;Certificate validation failed&quot;</strong></p>
+<ul>
+<li class="">Verify you copied the complete certificate (including <code>-----BEGIN CERTIFICATE-----</code> and <code>-----END CERTIFICATE-----</code> lines)</li>
+<li class="">Ensure the certificate is not expired (check in Okta under Sign On &gt; View Setup Instructions)</li>
+<li class="">Try refreshing the metadata URL to get the latest certificate</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="okta-logs">Okta Logs<a href="#okta-logs" class="hash-link" aria-label="Direct link to Okta Logs" title="Direct link to Okta Logs" translate="no">​</a></h3>
+<p>Check Okta&#x27;s logs for detailed error information:</p>
+<ul>
+<li class=""><strong>System Log</strong>: Navigate to <strong>Reports &gt; System Log</strong> in Okta Admin Console</li>
+<li class=""><strong>Filter by application</strong>: Search for &quot;Dragonfly Cloud&quot; to see authentication and provisioning events</li>
+<li class=""><strong>Provisioning Task Log</strong>: Go to the application&#x27;s <strong>Provisioning</strong> tab to see SCIM operation logs</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="certificate-rotation">Certificate Rotation<a href="#certificate-rotation" class="hash-link" aria-label="Direct link to Certificate Rotation" title="Direct link to Certificate Rotation" translate="no">​</a></h2>
+<p>Okta certificates expire periodically. To rotate certificates:</p>
+<ol>
+<li class="">
+<p>In Okta, navigate to your Dragonfly Cloud application</p>
+</li>
+<li class="">
+<p>Go to <strong>Sign On</strong> tab</p>
+</li>
+<li class="">
+<p>Click <strong>View Setup Instructions</strong> to see the current certificate and its expiration date</p>
+</li>
+<li class="">
+<p>If the certificate is near expiration or expired:</p>
+<ul>
+<li class="">Okta will automatically generate a new certificate</li>
+<li class="">Update the certificate in Dragonfly Cloud by refreshing the metadata URL</li>
+<li class="">Or manually copy the new certificate from Okta to Dragonfly Cloud</li>
+</ul>
+</li>
+<li class="">
+<p>It&#x27;s recommended to update the certificate before it expires to prevent authentication failures</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="best-practices">Best Practices<a href="#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Use Metadata URL</strong>: Configure Dragonfly Cloud with Okta&#x27;s metadata URL for automatic certificate rotation</li>
+<li class=""><strong>Enable SCIM</strong>: Enable SCIM provisioning to automate user lifecycle management</li>
+<li class=""><strong>Use Groups</strong>: Assign the application to Okta groups rather than individual users for easier management</li>
+<li class=""><strong>Test Changes</strong>: Always test SSO and SCIM configuration changes with a test user before rolling out to all users</li>
+<li class=""><strong>Monitor Logs</strong>: Regularly review Okta&#x27;s system log and provisioning logs for issues</li>
+<li class=""><strong>Certificate Expiration</strong>: Set reminders to check certificate expiration dates</li>
+<li class=""><strong>MFA</strong>: Leverage Okta&#x27;s MFA capabilities for enhanced security</li>
+<li class=""><strong>Conditional Access</strong>: Use Okta&#x27;s sign-on policies to enforce additional security requirements</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="additional-resources">Additional Resources<a href="#additional-resources" class="hash-link" aria-label="Direct link to Additional Resources" title="Direct link to Additional Resources" translate="no">​</a></h2>
+<ul>
+<li class=""><a href="https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_saml.htm" target="_blank" rel="noopener noreferrer" class="">Okta SAML Documentation</a></li>
+<li class=""><a class="" href="/docs/cloud/sso/managed-users">Dragonfly Cloud Managed Users</a></li>
+<li class=""><a class="" href="/docs/cloud/sso/domains">Domain Verification</a></li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/dragonflydb/documentation/edit/main/docs/cloud/sso/okta.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">Last updated<!-- --> on <b><time datetime="2026-03-21T16:38:52.000Z" itemprop="dateModified">Mar 21, 2026</time></b> by <b>github-actions[bot]</b></span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/cloud/sso/managed-users"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Managed Users and SCIM Provisioning</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/cloud/sso/onelogin"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">OneLogin SSO Integration</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites</a></li><li><a href="#configuration-overview" class="table-of-contents__link toc-highlight">Configuration Overview</a></li><li><a href="#step-1-create-sso-connection-in-dragonfly-cloud" class="table-of-contents__link toc-highlight">Step 1: Create SSO Connection in Dragonfly Cloud</a></li><li><a href="#step-2-configure-saml-application-in-okta" class="table-of-contents__link toc-highlight">Step 2: Configure SAML Application in Okta</a><ul><li><a href="#create-a-new-saml-application" class="table-of-contents__link toc-highlight">Create a New SAML Application</a></li><li><a href="#general-settings" class="table-of-contents__link toc-highlight">General Settings</a></li><li><a href="#configure-saml-settings" class="table-of-contents__link toc-highlight">Configure SAML Settings</a></li><li><a href="#attribute-statements" class="table-of-contents__link toc-highlight">Attribute Statements</a></li><li><a href="#group-attribute-statements-optional" class="table-of-contents__link toc-highlight">Group Attribute Statements (Optional)</a></li><li><a href="#feedback" class="table-of-contents__link toc-highlight">Feedback</a></li></ul></li><li><a href="#step-3-get-okta-saml-metadata" class="table-of-contents__link toc-highlight">Step 3: Get Okta SAML Metadata</a></li><li><a href="#step-4-complete-dragonfly-cloud-configuration" class="table-of-contents__link toc-highlight">Step 4: Complete Dragonfly Cloud Configuration</a><ul><li><a href="#option-a-using-metadata-url" class="table-of-contents__link toc-highlight">Option A: Using Metadata URL</a></li></ul></li><li><a href="#step-5-assign-users-in-okta" class="table-of-contents__link toc-highlight">Step 5: Assign Users in Okta</a></li><li><a href="#step-6-enable-the-connection" class="table-of-contents__link toc-highlight">Step 6: Enable the Connection</a></li><li><a href="#step-7-test-the-connection" class="table-of-contents__link toc-highlight">Step 7: Test the Connection</a></li><li><a href="#scim-provisioning" class="table-of-contents__link toc-highlight">SCIM Provisioning</a><ul><li><a href="#enabling-scim-in-dragonfly-cloud" class="table-of-contents__link toc-highlight">Enabling SCIM in Dragonfly Cloud</a></li><li><a href="#configuring-scim-in-okta" class="table-of-contents__link toc-highlight">Configuring SCIM in Okta</a></li><li><a href="#enable-provisioning-features" class="table-of-contents__link toc-highlight">Enable Provisioning Features</a></li><li><a href="#attribute-mappings" class="table-of-contents__link toc-highlight">Attribute Mappings</a></li><li><a href="#testing-scim-provisioning" class="table-of-contents__link toc-highlight">Testing SCIM Provisioning</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a><ul><li><a href="#common-issues" class="table-of-contents__link toc-highlight">Common Issues</a></li><li><a href="#okta-logs" class="table-of-contents__link toc-highlight">Okta Logs</a></li></ul></li><li><a href="#certificate-rotation" class="table-of-contents__link toc-highlight">Certificate Rotation</a></li><li><a href="#best-practices" class="table-of-contents__link toc-highlight">Best Practices</a></li><li><a href="#additional-resources" class="table-of-contents__link toc-highlight">Additional Resources</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Dragonfly</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.dragonflydb.io/features" target="_self" rel="noopener noreferrer" class="footer__link-item">Features<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.dragonflydb.io/blog" target="_self" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.dragonflydb.io/cloud" target="_self" rel="noopener noreferrer" class="footer__link-item">Dragonfly Cloud<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Developers</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/HsPjXGVH85" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/dragonflydb/dragonfly" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Company</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.dragonflydb.io/careers" target="_self" rel="noopener noreferrer" class="footer__link-item">Careers<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.dragonflydb.io/privacy" target="_self" rel="noopener noreferrer" class="footer__link-item">Privacy<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://www.dragonflydb.io/terms" target="_self" rel="noopener noreferrer" class="footer__link-item">Terms of Use<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="margin-bottom--sm"><a href="https://www.dragonflydb.io" target="_self" rel="noopener noreferrer" class="footerLogoLink_BH7S"><img src="/docs/website/logo.svg" alt="Dragonfly Logo" class="footer__logo themedComponent_mlkZ themedComponent--light_NVdE" width="150"><img src="/docs/website/logo.svg" alt="Dragonfly Logo" class="footer__logo themedComponent_mlkZ themedComponent--dark_xIcU" width="150"></a></div><div class="footer__copyright">
+          Copyright © 2026 DragonflyDB Ltd. & <a href="https://github.com/redis/redis-doc/blob/master/LICENSE" target="_blank">others</a>
+          <br>
+          <em>DragonflyDB Docs is Licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International Public License</a></em>
+        </div></div></div></footer></div>
+</body>
+</html>

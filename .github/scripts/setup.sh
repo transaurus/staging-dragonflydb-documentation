@@ -37,3 +37,15 @@ yarn install --frozen-lockfile
 yarn run docusaurus write-translations
 
 echo "SUCCESS: write-translations completed"
+
+# Build the site
+# Note: build fetches DRAGONFLY_VERSION from https://version.dragonflydb.io/v1 at build time
+yarn run build
+
+# Verify build output
+if [ -d "build" ] && [ -n "$(ls -A build)" ]; then
+  echo "SUCCESS: build completed, output in build/"
+else
+  echo "ERROR: build failed - no output in build/"
+  exit 1
+fi

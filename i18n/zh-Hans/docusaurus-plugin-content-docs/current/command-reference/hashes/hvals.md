@@ -1,0 +1,36 @@
+---
+description: "Learn how to use Redis HVALS command to fetch all the values in a hash. Simplify your data retrieval tasks with this command."
+---
+
+import PageTitle from '@site/src/components/PageTitle';
+
+# HVALS
+
+<PageTitle title="Redis HVALS Command (Documentation) | Dragonfly" />
+
+## Syntax
+
+    HVALS key
+
+**Time complexity:** O(N) where N is the size of the hash.
+
+**ACL categories:** @read, @hash, @fast
+
+Returns all values in the hash stored at `key`.
+
+## Return
+
+[Array reply](https://valkey.io/topics/protocol/#arrays): list of values in the hash, or an empty list when `key` does
+not exist.
+
+## Examples
+
+```shell
+dragonfly> HSET myhash field1 "Hello"
+(integer) 1
+dragonfly> HSET myhash field2 "World"
+(integer) 1
+dragonfly> HVALS myhash
+1) "Hello"
+2) "World"
+```

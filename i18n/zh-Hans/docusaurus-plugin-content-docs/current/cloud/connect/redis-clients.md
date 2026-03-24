@@ -1,0 +1,210 @@
+---
+sidebar_position: 1
+---
+
+import PageTitle from '@site/src/components/PageTitle';
+import CloudBadge from'@site/src/components/CloudBadge/CloudBadge'
+
+# Redis Clients
+
+<CloudBadge/>
+<br /><br />
+
+<PageTitle title="Connecting with Redis Clients | Dragonfly Cloud" />
+
+Once a data store's **Status** is **Active**, you can connect to it with any Redis client by following
+the **Connection Details** section in the data store details drawer.
+Here are a few popular client libraries and code snippets to connect to the data store.
+
+![Dragonfly Cloud Connection Details](/img/dragonfly-cloud-connection-details.png)
+
+**Notes:**
+
+- Unless otherwise specified, you should use the connection details found for each data store
+  to replace those placeholders in the code snippets below, where we use public endpoints with the `default` user and TLS disabled.
+- **For production, we strongly recommend using private [networks](../networks.md) and [connections](../connections.md).**
+
+---
+
+## Redis CLI
+
+### Single-Shard Data Store
+
+- Install [`redis-cli`](https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/).
+- With the **Connection URI** from the data store drawer, run `redis-cli` in the terminal:
+
+```shell
+$> redis-cli -u <CONNECTION_URI> PING
+```
+
+### Dragonfly Swarm
+
+- If you are running a **Dragonfly Swarm** multi-shard cluster in Dragonfly Cloud, make sure to use the cluster-aware flag:
+
+```shell
+# The '-c' flag enables client-side cluster mode, which follows '-ASK' and '-MOVED' redirections.
+$> redis-cli -c -u <CONNECTION_URI> PING
+```
+
+---
+
+## TypeScript & JavaScript
+
+### Single-Shard Data Store
+
+- Install the [`ioredis`](https://github.com/redis/ioredis) package.
+- Use the following code snippet to connect to the data store:
+
+```javascript
+import { Redis as Dragonfly } from "ioredis";
+
+// Connection details can be found in your Dragonfly Cloud console.
+const client = new Dragonfly({
+  host: "<URL>",
+  port: 6385,
+  username: "default",
+  password: "<KEY>",
+});
+
+client.ping().then((resp) => console.log(resp));
+```
+
+### Dragonfly Swarm & Read Replicas
+
+- While running a **Dragonfly Swarm** cluster, make sure to use the cluster-aware version of the client as shown below.
+- If your application requires even higher read throughput and can tolerate slightly stale reads, you can use **read replicas**,
+  which are enabled by default when deploying Dragonfly Swarm with replicas.
+
+```javascript
+import { Redis as Dragonfly } from "ioredis";
+
+// Connection details can be found in your Dragonfly Cloud console.
+//
+// For the 'scaleReads' option:
+//  - 'master': All queries, including reads, are sent to primary nodes.
+//  - 'all': Write to primary nodes, read from either primary nodes or replicas.
+//  - 'slave': Write to primary nodes, read from replicas exclusively.
+import { Redis as Dragonfly } from "ioredis";
+
+const client = new Dragonfly.Cluster([{ host: "<URL>", port: 6385 }], {
+  redisOptions: {
+    username: "default",
+    password: "<KEY>",
+  },
+  scaleReads: "slave",
+});
+
+client.ping().then((resp) => console.log(resp));
+```
+
+---
+
+## Python
+
+### Single-Shard Data Store
+
+- Install the [redis-py](https://github.com/redis/redis-py) package.
+- Use the following code snippet to connect to the data store:
+
+```python
+import redis
+
+# Connection details can be found in your Dragonfly Cloud console.
+client = redis.Redis.from_url("<CONNECTION_URI>")
+client.ping()
+```
+
+### Dragonfly Swarm & Read Replicas
+
+- While running a **Dragonfly Swarm** cluster, make sure to use the cluster-aware version of the client as shown below.
+- If your application requires even higher read throughput and can tolerate slightly stale reads, you can use **read replicas**,
+  which are enabled by default when deploying Dragonfly Swarm with replicas.
+
+```python
+from redis import RedisCluster as DragonflySwarm
+
+# Connection details can be found in your Dragonfly Cloud console.
+client = DragonflySwarm(
+    host="<URL>",
+    port=6385,
+    username="default",
+    password="<KEY>",
+    read_from_replicas=True,  # Enables read-only commands on replicas.
+)
+
+client.ping()
+```
+
+---
+
+## Go
+
+### Single-Shard Data Store
+
+- Install the [go-redis](https://github.com/redis/go-redis) package.
+- Use the following code snippet to connect to the data store:
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+
+    "github.com/redis/go-redis/v9"
+)
+
+func main() {
+    // Connection details can be found in your Dragonfly Cloud console.
+    client := redis.NewClient(&redis.Options{
+		Addr:     "<URL>:<PORT>",
+		Username: "default",
+		Password: "<KEY>",
+	})
+
+    pong, err := client.Ping(context.Background()).Result()
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(pong)
+}
+```
+
+### Dragonfly Swarm & Read Replicas
+
+- While running a **Dragonfly Swarm** cluster, make sure to use the cluster-aware version of the client as shown below.
+- If your application requires even higher read throughput and can tolerate slightly stale reads, you can use **read replicas**,
+  which are enabled by default when deploying Dragonfly Swarm with replicas.
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/redis/go-redis/v9"
+)
+
+func main() {
+	// Connection details can be found in your Dragonfly Cloud console.
+	client := redis.NewClusterClient(
+		&redis.ClusterOptions{
+			Addrs: []string{
+				"<URL>:<PORT>",
+			},
+			Username: "default",
+			Password: "<KEY>",
+			ReadOnly: true, // Enables read-only commands on replicas.
+		},
+	)
+
+	pong, err := client.Ping(context.Background()).Result()
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	fmt.Println(pong)
+}
+```

@@ -1,0 +1,142 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.sidebar.category.Documentation": {
+    "message": "Documentation",
+    "description": "The label for category 'Documentation' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for category 'Getting Started' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Command Reference": {
+    "message": "Command Reference",
+    "description": "The label for category 'Command Reference' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.ACL": {
+    "message": "ACL",
+    "description": "The label for category 'ACL' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Bloom Filter": {
+    "message": "Bloom Filter",
+    "description": "The label for category 'Bloom Filter' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Cluster Management": {
+    "message": "Cluster Management",
+    "description": "The label for category 'Cluster Management' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Count-Min Sketch": {
+    "message": "Count-Min Sketch",
+    "description": "The label for category 'Count-Min Sketch' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Generic": {
+    "message": "Generic",
+    "description": "The label for category 'Generic' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Geospatial Indices": {
+    "message": "Geospatial Indices",
+    "description": "The label for category 'Geospatial Indices' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Hashes": {
+    "message": "Hashes",
+    "description": "The label for category 'Hashes' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.HyperLogLog": {
+    "message": "HyperLogLog",
+    "description": "The label for category 'HyperLogLog' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.JSON": {
+    "message": "JSON",
+    "description": "The label for category 'JSON' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Lists": {
+    "message": "Lists",
+    "description": "The label for category 'Lists' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Pub/Sub": {
+    "message": "Pub/Sub",
+    "description": "The label for category 'Pub/Sub' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Rate Limiter": {
+    "message": "Rate Limiter",
+    "description": "The label for category 'Rate Limiter' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Search": {
+    "message": "Search",
+    "description": "The label for category 'Search' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Server Management": {
+    "message": "Server Management",
+    "description": "The label for category 'Server Management' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Sets": {
+    "message": "Sets",
+    "description": "The label for category 'Sets' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Sorted Sets": {
+    "message": "Sorted Sets",
+    "description": "The label for category 'Sorted Sets' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Streams": {
+    "message": "Streams",
+    "description": "The label for category 'Streams' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Strings": {
+    "message": "Strings",
+    "description": "The label for category 'Strings' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Managing Dragonfly": {
+    "message": "Managing Dragonfly",
+    "description": "The label for category 'Managing Dragonfly' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Dragonfly Operator": {
+    "message": "Dragonfly Operator",
+    "description": "The label for category 'Dragonfly Operator' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Migrating to Dragonfly": {
+    "message": "Migrating to Dragonfly",
+    "description": "The label for category 'Migrating to Dragonfly' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.From Redis Instance": {
+    "message": "From Redis Instance",
+    "description": "The label for category 'From Redis Instance' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.From Redis Cluster": {
+    "message": "From Redis Cluster",
+    "description": "The label for category 'From Redis Cluster' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Development": {
+    "message": "Development",
+    "description": "The label for category 'Development' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Integrations": {
+    "message": "Integrations",
+    "description": "The label for category 'Integrations' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Dragonfly Cloud": {
+    "message": "Dragonfly Cloud",
+    "description": "The label for category 'Dragonfly Cloud' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Migrating to Dragonfly Cloud": {
+    "message": "Migrating to Dragonfly Cloud",
+    "description": "The label for category 'Migrating to Dragonfly Cloud' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Connecting to Dragonfly Cloud": {
+    "message": "Connecting to Dragonfly Cloud",
+    "description": "The label for category 'Connecting to Dragonfly Cloud' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.VPN": {
+    "message": "VPN",
+    "description": "The label for category 'VPN' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.Serverless": {
+    "message": "Serverless",
+    "description": "The label for category 'Serverless' in sidebar 'sidebar'"
+  },
+  "sidebar.sidebar.category.SSO": {
+    "message": "SSO",
+    "description": "The label for category 'SSO' in sidebar 'sidebar'"
+  }
+}

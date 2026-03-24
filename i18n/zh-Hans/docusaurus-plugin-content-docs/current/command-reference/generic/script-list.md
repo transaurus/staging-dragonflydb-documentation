@@ -1,0 +1,23 @@
+---
+description: "Learn how to use Redis SCRIPT LIST to return a list of issued script commands."
+---
+
+import PageTitle from '@site/src/components/PageTitle';
+
+# SCRIPT LIST
+
+<PageTitle title="Redis SCRIPT LIST Command (Documentation) | Dragonfly" />
+
+## Syntax
+
+    SCRIPT LIST
+
+**Time complexity:** O(N) with N being the number of scripts in script cache.
+
+**ACL categories:** @slow, @scripting
+
+Returns information about all the scripts in the script cache.
+
+## Return
+
+[Array reply](https://valkey.io/topics/protocol/#arrays) This command returns an array of elements. The first element is the SHA1 digest of the scripts added into the script cache. The second element is lua script.

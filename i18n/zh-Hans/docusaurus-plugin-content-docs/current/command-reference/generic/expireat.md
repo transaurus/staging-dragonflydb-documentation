@@ -1,0 +1,54 @@
+---
+description: "Make use of Redis EXPIREAT command to set key expiry with UNIX timestamp."
+---
+
+import PageTitle from '@site/src/components/PageTitle';
+
+# EXPIREAT
+
+<PageTitle title="Redis EXPIREAT Command (Documentation) | Dragonfly" />
+
+## Syntax
+
+    EXPIREAT key unix-time-seconds [NX | XX | GT | LT]
+
+**Time complexity:** O(1)
+
+**ACL categories:** @keyspace, @write, @fast
+
+`EXPIREAT` has the same effect and semantic as `EXPIRE`, but instead of
+specifying the number of seconds representing the TTL (time to live), it takes
+an absolute [Unix timestamp][hewowu] (seconds since January 1, 1970). A
+timestamp in the past will delete the key immediately.
+
+[hewowu]: http://en.wikipedia.org/wiki/Unix_time
+
+Please for the specific semantics of the command refer to the documentation of
+`EXPIRE`.
+
+## Options
+
+- `NX`: Expiry will only be set if the key has no expiry.
+- `XX`: Expiry will only be set if the key has an existing expiry.
+- `GT`: Expiry will only be set if the new expiry is greater than current one.
+- `LT`: Expiry will only be set if the new expiry is less than current one.
+
+## Return
+
+[Integer reply](https://valkey.io/topics/protocol/#integers), specifically:
+
+- `1` if the timeout was set.
+- `0` if the timeout was not set. e.g. key doesn't exist, or operation skipped due to the provided arguments.
+
+## Examples
+
+```shell
+dragonfly> SET mykey "Hello"
+OK
+dragonfly> EXISTS mykey
+(integer) 1
+dragonfly> EXPIREAT mykey 1293840000
+(integer) 1
+dragonfly> EXISTS mykey
+(integer) 0
+```

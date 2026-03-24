@@ -55,7 +55,7 @@ jobs:
           
           LOCALE_ARRAY=$(echo "$LOCALES" | tr ',' '\n' | sed "s/.*/'&'/" | tr '\n' ',' | sed 's/,$//')
           
-          if ! grep -q "i18n" "$CONFIG_FILE"; then
+          if ! grep -q "defaultLocale" "$CONFIG_FILE"; then
             node -e "
             const fs = require('fs');
             let c = fs.readFileSync('$CONFIG_FILE', 'utf8');
@@ -138,7 +138,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
           find . -name "$BUILD_OUTPUT" -type d -maxdepth 4 -not -path "./.git/*" | while read d; do
-            [ -f "$d/index.html" ] && git add -f "$d/"
+            [ -f "$d/index.html" ] && git add -f "$d/" || true
           done
           if ! git diff --staged --quiet; then
             git commit --no-verify -m "Stage 2: translations (${{ github.event.inputs.locales }})"

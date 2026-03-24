@@ -39,41 +39,36 @@ jobs:
       - name: 'Add i18n locale config'
         run: |
           LOCALES="${{ github.event.inputs.locales }}"
-          
           CONFIG_FILE=$(find . -name "docusaurus.config.*" -not -path "./node_modules/*" -not -path "./.git/*" | head -1)
           [ -z "$CONFIG_FILE" ] && echo "ERROR: No config found" && exit 1
           echo "Config: $CONFIG_FILE"
           
-          LOCALE_ARRAY=$(echo "$LOCALES" | tr ',' '\n' | sed "s/.*/'&'/" | tr '\n' ',' | sed 's/,$//')
-          
           node -e "
           const fs = require('fs');
           let c = fs.readFileSync('$CONFIG_FILE', 'utf8');
+          const targets = '${LOCALES}'.split(',');
           
-          // Check if locales array already has our target locales
-          const targetLocales = '${LOCALES}'.split(',');
-          const allPresent = targetLocales.every(l => c.includes(\"'\" + l + \"'\") || c.includes('\"' + l + '\"'));
-          if (allPresent) { console.log('All locales already present'); process.exit(0); }
-          
-          // Case 1: has existing i18n config with locales array → add to it
-          const localeMatch = c.match(/locales:\s*\[([^\]]*)\]/);
-          if (localeMatch) {
-            const existing = localeMatch[1];
-            const newLocales = existing.trimEnd() + ', ' + targetLocales.map(l => \"'\" + l + \"'\").join(', ');
-            c = c.replace(localeMatch[0], 'locales: [' + newLocales + ']');
-            fs.writeFileSync('$CONFIG_FILE', c);
-            console.log('Added locales to existing i18n config');
-            process.exit(0);
-          }
-          
-          // Case 2: no i18n config at all → inject
-          const i18n = \"\n  i18n: { defaultLocale: 'en', locales: ['en', ${LOCALE_ARRAY}] },\";
-          for (const p of [/(module\.exports\s*=\s*\{)/, /(export\s+default\s*\{)/, /(const\s+config\s*[:=]\s*\{)/]) {
-            const m = c.match(p);
-            if (m) { c = c.slice(0, m.index + m[0].length) + i18n + c.slice(m.index + m[0].length); break; }
+          // Find the locales array in i18n config
+          const m = c.match(/locales:\s*\[([^\]]*)\]/);
+          if (m) {
+            // Existing locales array — add missing locales
+            const existing = m[1];
+            const toAdd = targets.filter(l => !existing.includes(l));
+            if (toAdd.length === 0) { console.log('All locales already in locales array'); process.exit(0); }
+            const newArr = existing.trimEnd() + ', ' + toAdd.map(l => '\"' + l + '\"').join(', ');
+            c = c.replace(m[0], 'locales: [' + newArr + ']');
+            console.log('Added locales:', toAdd.join(', '));
+          } else {
+            // No locales array — inject full i18n block
+            const locArr = ['en', ...targets].map(l => '\"' + l + '\"').join(', ');
+            const block = '\n  i18n: { defaultLocale: \"en\", locales: [' + locArr + '] },';
+            for (const p of [/(module\.exports\s*=\s*\{)/, /(export\s+default\s*\{)/, /(const\s+config\s*[:=]\s*\{)/]) {
+              const pm = c.match(p);
+              if (pm) { c = c.slice(0, pm.index + pm[0].length) + block + c.slice(pm.index + pm[0].length); break; }
+            }
+            console.log('Injected new i18n block');
           }
           fs.writeFileSync('$CONFIG_FILE', c);
-          console.log('Injected new i18n config');
           "
 
       - name: 'Place translated files (placeholder copies)'

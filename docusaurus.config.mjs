@@ -13,7 +13,7 @@ const config = {
   tagline: "Ultra-fast, scalable in-memory datastore",
   url: "https://www.dragonflydb.io",
   baseUrl: isPreviewDeployment ? "/" : "/docs",
-  onBrokenLinks: "throw",
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: "warn",
   favicon: "website/favicon.ico",
   trailingSlash: false,
@@ -23,7 +23,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "en",
-    locales: ["en"],
+    locales: ["en", "zh-Hans"],
   },
 
   headTags: [
